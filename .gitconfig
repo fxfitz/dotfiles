@@ -1,0 +1,27 @@
+[user]
+	e-mail = francis.x.fitzpatrick@gmail.com
+	email = francis.x.fitzpatrick@gmail.com
+	name = fxfitz
+[push]
+	default = simple
+[core]
+	editor = emacs
+[alias]
+	st = status
+	delete-remote-branch = push --delete
+	sync-fork = !git ru && git checkout master && git pull upstream master && git push origin master
+	ru = remote update
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
